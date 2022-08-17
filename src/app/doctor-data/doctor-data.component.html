@@ -1,0 +1,19 @@
+<table class="table" id="tab" border="2px solid black">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Userame</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">City</th>
+      <th scope="col">Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of listTodo">
+      <td>{{ i.id }}</td>
+      <td>{{ i.title }}</td>
+      <td>{{ i.completed }}</td>
+    </tr>
+  </tbody>
+</table>
