@@ -1,0 +1,35 @@
+<app-reg-form (newDoctorInfo)="registerNewDoctor($event)"></app-reg-form>
+<br><br><br><br>
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<br><br>
+<h3>Doctors List</h3>
+<div class="table-responsive">
+<table class="table" id="tab" border="2px solid black">
+  <caption>Doctor List</caption>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Userame</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">City</th>
+      <th scope="col">Website</th>
+    </tr>
+  </thead>
+  <tbody  *ngFor="let doctor of doctors">
+    <tr  scope="row" *ngIf="searchText === '' || doctor.name.toLowerCase().includes(searchText) || doctor.username.toLowerCase().includes(searchText)" >
+      <td>{{ doctor.name }}</td>
+      <td>{{ doctor.username }}</td>
+      <td>{{ doctor.email }}</td>
+      <td>{{ doctor.phone }}</td>
+      <td>{{ doctor.address.city ?  doctor.address.city :  doctor.address   }}</td>
+      <td>{{ doctor.website }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<app-load-button
+(stateChange)="onStateChange($event)"
+    [changeState]="stateChange"></app-load-button>
+
+
